@@ -1,0 +1,27 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Tic-tac-toe</title>
+<style>
+body {
+  margin: 0;
+  overflow: hidden;
+  -webkit-tap-highlight-color: rgba(0, 0, 0, 0);
+}
+</style>
+<script src="tic-tac-toe.js"></script>
+<script>
+window.TL=window.TL||{init:function(cb){TL.send({command:"init"},cb)},_c:0,_r:
+[document.referrer.match(/^https:\/+([\w-.]+\.)?twincl.com\//)||[""]][0],send:
+function(m,cb){var id=m._id=++TL._c;if(cb){var ln=function(m){var o=m.data;if(
+o&&o._id===id){rm();cb(o.data)}};var rm=function(){window.removeEventListener(
+"message",ln)};window.addEventListener("message",ln);setTimeout(rm,3e4)}window
+.parent.postMessage(m,TL._r)}};
+</script>
+</head>
+<body>
+<canvas id="canvas"></canvas>
+</body>
+</html>
