@@ -3,7 +3,7 @@
  * MIT License
  *
  * Tic-tac-toe
- * A Twincl plugin for twinclet-tic-tac-toe
+ * RICH player: tic-tac-toe
  */
 
 window.onload = function () { new Game().init(); }
@@ -29,7 +29,7 @@ Game.prototype.init = function () {
   this.maximized = false;
   this.delayResize = true;
   
-  TL.init(function (result) {
+  RICH.init(function (result) {
     this.param = result.item;
     this.param.data.toLowerCase().trim().split(/\n/).map(function (row, y) {
       row.match(/[.ox]/ig).forEach(function (mark, x) {
@@ -44,7 +44,7 @@ Game.prototype.init = function () {
     }
     if (this.param.height) {
       this.delayResize = false;
-      TL.send({command: 'screen', height: this.param.height});
+      RICH.send({command: 'screen', height: this.param.height});
     }
     window.onresize = this.onResize.bind(this);
     window.onkeyup = this.onKeyUp.bind(this);
@@ -168,7 +168,7 @@ Game.prototype.onMouseMove = function (e) {
 Game.prototype.toggleFullScreen = function () {
   this.maximized = !this.maximized;
   this.delayResize = false;
-  TL.send({command: 'screen', state: this.maximized ? 'full' : 'normal'});
+  RICH.send({command: 'screen', state: this.maximized ? 'full' : 'normal'});
 }
 
 Game.prototype.onClick = function (e) {
